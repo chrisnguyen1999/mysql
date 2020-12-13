@@ -1,0 +1,80 @@
+<header class="header fixed-top clearfix">
+  <!--logo start-->
+  <div class="brand">
+      <a class="logo" style="font-size: 20px;">
+          Sale Management
+      </a>
+      <div class="sidebar-toggle-box">
+          <div class="fa fa-bars"></div>
+      </div>
+  </div>
+  <!--logo end-->
+
+  <div class="top-nav clearfix">
+      <!--search & user info start-->
+      <ul class="nav pull-right top-menu">
+          <!-- user login dropdown start-->
+          <li class="dropdown" style="cursor: pointer;">
+              <a data-toggle="dropdown" class="dropdown-toggle">
+                  <img alt="" src="assets/images/2.png">
+                  <span class="username">John Doe</span>
+                  <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu extended logout">
+                  <li><a><i class=" fa fa-suitcase"></i>Profile</a></li>
+                  <li><a><i class="fa fa-key"></i> Log Out</a></li>
+              </ul>
+          </li>
+          <!-- user login dropdown end -->
+
+      </ul>
+      <!--search & user info end-->
+  </div>
+</header>
+
+<aside>
+  <div id="sidebar" class="nav-collapse">
+    <div class="leftside-navigation">
+      <ul class="sidebar-menu" id="nav-accordion">
+        <li class="sub-menu">
+          <a href="javascript:;">
+            <i class="fa fa-th"></i>
+            <span>Products</span>
+          </a>
+          <ul class="sub">
+            <li style="cursor: pointer;" routerLink="/product/table" routerLinkActive="active"><a>Product List</a></li>
+            <li style="cursor: pointer;" routerLink="/product/bill" routerLinkActive="active"><a>Bill</a></li>
+            <li style="cursor: pointer;" routerLink="/product/sale" routerLinkActive="active"><a>Sale</a></li>
+          </ul>
+        </li>
+        <li class="sub-menu">
+          <a href="javascript:;">
+            <i class="fa fa-tasks"></i>
+            <span>Import</span>
+          </a>
+          <ul class="sub">
+            <li style="cursor: pointer;" routerLink="/order/import" routerLinkActive="active"><a>Order Merchandise</a></li>
+            <li style="cursor: pointer;" routerLink="/order/bill" routerLinkActive="active"><a>Order Bill</a></li>
+          </ul>
+        </li>
+        <li routerLink="/customer" routerLinkActive="active" class="sub-menu">
+          <a href="javascript:;">
+            <i class="fa fa-user"></i>
+            <span>Customers</span>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+</aside>
+
+<section id="main-content">
+  <section class="wrapper">
+    <router-outlet></router-outlet>
+  </section>
+
+
+</section>
+

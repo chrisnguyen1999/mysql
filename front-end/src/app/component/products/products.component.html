@@ -1,0 +1,124 @@
+<div class="table-agile-info">
+  <div class="panel panel-default">
+     <div class="panel-heading">
+      Product table
+     </div>
+     <div>
+       <table class="table" ui-jq="footable">
+         <thead>
+           <tr>
+            <th>product_name</th>
+            <th>offer</th>
+            <th>warranty_period</th>
+            <th>amount</th>
+            <th>branch</th>
+            <th style="width: 16%;">billId</th>
+            <th>sale_price</th>
+            <th>import_price</th>
+            <th>Tools</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr data-expanded="true" *ngFor="let x of productArray | paginate: { itemsPerPage: limit, currentPage: page, totalItems: total }; let i = index;">
+            <td>{{x.product_name}}</td>
+            <td>{{x.offer}}</td>
+            <td>{{x.warranty_period}}</td>
+            <td>{{x.amount}}</td>
+            <td>{{x.branch}}</td>
+            <td style="width: 16%;" >{{x.billId}}</td>
+            <td>{{x.sale_price}}</td>
+            <td>{{x.import_price}}</td>
+            <td>
+              <a>
+                <i style="cursor: pointer;" class="fa fa-wrench fa-lg" aria-hidden="true" (click)="editProduct(x.productId, i)" href="#myModal-1" data-toggle="modal"></i>&nbsp;&nbsp;&nbsp;
+                <i style="cursor: pointer;" class="fa fa-trash fa-lg" aria-hidden="true" (click)="deleteProduct(x.productId, i)"></i>
+              </a>
+            </td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+     <footer class="panel-footer">
+      <div class="row">
+        <div class="col-sm-7 text-right text-center-xs">
+          <pagination-controls class="pagination pagination-sm m-t-none m-b-none" (pageChange)="pageChanged($event)"></pagination-controls>
+        </div>
+      </div>
+    </footer>
+   </div>
+   <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal-1" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">Edit Product</h4>
+            </div>
+            <div class="modal-body">
+
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label col-lg-3">Product name</label>
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control" id="productname" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label col-lg-3">Branch</label>
+                      <div class="col-lg-6">
+                          <p class="form-control-static" id="branch"></p>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label col-lg-3">Amount</label>
+                      <div class="col-lg-6">
+                          <p class="form-control-static" id="amount"></p>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label col-lg-3">Sale price</label>
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control" id="saleprice" placeholder="">
+                        </div>
+                    </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label col-lg-3">Offer</label>
+                    <div class="col-lg-6">
+                      <select class="form-control m-bot15" id="offer">
+                          <option value="10%">10%</option>
+                          <option value="20%">20%</option>
+                          <option value="30%">30%</option>
+                          <option value="40%">40%</option>
+                          <option value="50%">50%</option>
+                          <option value="60%">60%</option>
+                          <option value="70%">70%</option>
+                          <option value="80%">80%</option>
+                          <option value="90%">90%</option>
+                          <option value="100%">100%</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label col-lg-3">Warranty period</label>
+                    <div class="col-lg-6">
+                      <select class="form-control m-bot15" id="warranty">
+                          <option value="6months">6 months</option>
+                          <option value="1year">1 year</option>
+                          <option value="2years">2 years</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group" style="text-align: end;">
+                      <div class="col-lg-offset-2 col-lg-10">
+                          <button type="submit" id="button" data-dismiss="modal" class="btn btn-primary" (click)="submit($event)">Edit</button>
+                      </div>
+                  </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+  </div>
+ </div>
+
+

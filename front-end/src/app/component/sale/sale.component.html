@@ -1,0 +1,114 @@
+<div class="form-w3layouts">
+
+
+  <div class="row">
+  <div class="col-lg-12">
+
+
+  <section class="panel">
+      <div class="panel-body">
+          <form class="form-horizontal bucket-form">
+              <div class="form-group">
+                  <label class="col-sm-3 control-label col-lg-3" for="inputSuccess">Choose branch</label>
+                  <div class="col-lg-6">
+
+                      <select name="supplier" class="form-control input-lg m-bot15" [(ngModel)]="selectedBranch" (change)="chooseSupplier()">
+                          <option *ngFor="let x of branch" [value]="x.branch">{{ x.branch }}</option>
+                      </select>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </section>
+  <section class="panel">
+      <div class="panel-body">
+          <form class="form-horizontal bucket-form">
+              <div class="form-group">
+                  <label class="col-sm-3 control-label col-lg-3" for="inputSuccess">Select the product</label>
+                  <div class="col-lg-6" style="width: 75%;">
+                      <div class="checkbox" *ngFor="let x of merchandiseArray; let i = index">
+                          <label style="width: 65%;">
+                              <input type="checkbox" [value]="x.productId" name="" (change)="checked($event.target.checked, i)">
+                              {{ x.product_name }} -
+                              <span style="width: 20%;">Price: {{ x.sale_price }} - </span>&nbsp;
+                              <span>Offer: {{ x.offer }} - </span>&nbsp;
+                              <span>Warranty period: {{ x.warranty_period }}</span>
+                          </label>
+                            <label style="margin-right: 1%;">Amount
+                            </label>
+                            <input style="width: 10%;" type="number" min="0" max="{{x.amount}}" [disabled]="!merchandiseArray[i].checked" id="{{x.productId}}">
+                      </div>
+                  </div>
+              </div>
+
+          </form>
+      </div>
+  </section>
+  <section class="panel">
+    <div class="panel-body">
+        <form class="form-horizontal bucket-form">
+            <div class="form-group">
+                <label class="col-sm-3 control-label col-lg-3" for="inputSuccess">Payment method</label>
+                <div class="col-lg-6">
+
+                    <select name="payment_method" class="form-control input-lg m-bot15" id="payment_method">
+                        <option value="Credit_Cards">Credit Cards</option>
+                        <option value="Mobile_Payments">Mobile Payments</option>
+                        <option value="Bank_Transfers">Bank Transfers</option>
+                        <option value="cash">Cash On Delivery</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<section class="panel">
+  <div class="panel-body">
+      <form class="form-horizontal bucket-form">
+        <div class="form-group">
+          <label class="col-sm-3 control-label col-lg-3">Full name</label>
+          <div class="col-lg-6">
+              <input type="text" class="form-control" id="customerName" placeholder="">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label col-lg-3">Email</label>
+          <div class="col-lg-6">
+              <input type="email" class="form-control" id="email" placeholder="">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label col-lg-3">Address</label>
+          <div class="col-lg-6">
+              <input type="text" class="form-control" id="address" placeholder="">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label col-lg-3">Phone number</label>
+          <div class="col-lg-6">
+              <input type="text" class="form-control" id="phone_number" placeholder="" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label col-lg-3">Date of birth</label>
+          <div class="col-lg-6">
+              <input type="text" class="form-control" id="dob" placeholder="">
+          </div>
+        </div>
+      </form>
+  </div>
+</section>
+  <section>
+    <div class="panel-body" style="text-align: end;">
+      <button type="submit" class="btn btn-primary" (click)="order()" >Order</button>
+    </div>
+  </section>
+
+
+  </div>
+  </div>
+
+
+
+  <!-- page end-->
+  </div>

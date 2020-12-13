@@ -1,0 +1,40 @@
+<div class="table-agile-info">
+  <div class="panel panel-default">
+     <div class="panel-heading">
+      Import bill table
+     </div>
+     <div>
+       <table class="table" ui-jq="footable">
+         <thead>
+           <tr>
+            <th style="width: 20%;">saleBillId</th>
+            <th style="width: 20%;">customerId</th>
+            <th>date_of_purchase</th>
+            <th>payment_method</th>
+            <th>total_price</th>
+            <th>amount</th>
+            <th>staffId</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr data-expanded="true" *ngFor="let x of billArray | paginate: { itemsPerPage: limit, currentPage: page, totalItems: total }">
+            <td style="width: 20%;">{{x.saleBillId}}</td>
+            <td style="width: 20%;">{{x.customerId}}</td>
+            <td>{{x.date_of_purchase}}</td>
+            <td>{{x.payment_method}}</td>
+            <td>{{x.total_price}}</td>
+            <td>{{x.amount}}</td>
+            <td>{{x.staffId}}</td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+     <footer class="panel-footer">
+      <div class="row">
+        <div class="col-sm-7 text-right text-center-xs">
+          <pagination-controls class="pagination pagination-sm m-t-none m-b-none" (pageChange)="pageChanged($event)"></pagination-controls>
+        </div>
+      </div>
+    </footer>
+   </div>
+ </div>
